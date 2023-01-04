@@ -20,7 +20,7 @@ class ControladorCategorias{
 
 				if($respuesta == "ok"){
 
-					echo'<script>
+					echo '<script>
 
 					swal({
 						  type: "success",
@@ -42,7 +42,7 @@ class ControladorCategorias{
 
 			}else{
 
-				echo'<script>
+				 echo '<script>
 
 					swal({
 						  type: "error",
