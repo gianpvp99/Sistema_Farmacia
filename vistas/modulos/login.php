@@ -10,7 +10,9 @@
 
   <div class="login-box-body">
 
-    <p class="login-box-msg">Ingresar al sistema</p>
+    <p class="login-box-msg">Iniciar Sesión
+      <br><p>Ingresa con usuario y contraseña: gianpiervp</p>
+    </p>
 
     <form method="post">
 
