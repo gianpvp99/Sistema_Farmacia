@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2022 a las 09:08:05
+-- Tiempo de generación: 19-03-2023 a las 00:47:05
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -48,7 +48,10 @@ INSERT INTO `categorias` (`id`, `categoria`, `descripcion`, `fecha`) VALUES
 (13, 'Inhaladores', '', '2022-12-06 16:35:03'),
 (14, 'Alcoholes', '', '2022-12-06 16:35:09'),
 (15, 'Vendas', '', '2022-12-06 16:35:12'),
-(19, 'Pildoras', '', '2022-12-07 00:46:56');
+(19, 'Pildoras', '', '2022-12-07 00:46:56'),
+(24, 'higiene', '', '2022-12-13 22:24:57'),
+(25, 'prueba', '', '2023-01-08 01:15:36'),
+(26, 'Bebidas', '', '2023-03-09 15:55:04');
 
 -- --------------------------------------------------------
 
@@ -95,8 +98,9 @@ INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direc
 (36, 'David Lazarte', 78239034, 'david993@hotmail.com', '(51) 982-323-888', 'av. 23 de diciembre mz 03 lote 01', '1999-03-23', 0, '0000-00-00 00:00:00', '2022-12-06 18:36:27'),
 (37, 'Rafael Defrias', 10982378, 'rafafa003@hotmail.com', '(51) 923-992-300', 'av. pogreso mz 01 lote 10', '1969-03-23', 0, '0000-00-00 00:00:00', '2022-12-06 18:37:38'),
 (38, 'Piero Gutierrez', 70193289, 'pier1999@gmail.com', '(51) 900-293-993', 'av. crustacio mz 03 lote 15', '1993-03-22', 0, '0000-00-00 00:00:00', '2022-12-06 18:38:32'),
-(39, 'Juancito', 78238746, 'juanico123@hotmail.com', '(51) 923-930-000', 'av. velasco 001', '1999-09-01', 0, '0000-00-00 00:00:00', '2022-12-06 23:55:54'),
-(40, 'Juan', 78238723, 'juan123@gmail.com', '(51) 923-823-823', 'av. manco capac 3', '1999-09-25', 11, '2022-12-06 19:52:23', '2022-12-07 00:52:23');
+(40, 'Juan', 78238723, 'juan123@gmail.com', '(51) 923-823-823', 'av. manco capac 3', '1999-09-25', 0, '0000-00-00 00:00:00', '2022-12-13 21:51:33'),
+(42, 'cliente ', 78923899, 'prueba99@gmail.com', '(51) 999-999-099', 'av. prueba 999', '1999-09-09', 9, '2022-12-13 17:31:33', '2022-12-13 22:31:33'),
+(43, 'Juancito', 7892387, 'juancito@gmail.com', '(51) 900-990-909', 'av. larcomar 3099', '1999-03-23', 9, '2023-03-09 11:11:29', '2023-03-09 16:11:29');
 
 -- --------------------------------------------------------
 
@@ -133,22 +137,23 @@ INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`
 (69, 9, '9000010', 'Insulina 6 mm', 'vistas/img/productos/9000010/593.jpg', 75, 16.7, 23.38, 0, '2022-12-06 19:54:50'),
 (70, 9, '9000011', 'Jeringa estéril 30 g', 'vistas/img/productos/9000011/887.png', 15, 18.5, 25.9, 0, '2022-12-06 19:57:34'),
 (71, 9, '9000012', 'Ascmedic 3 ml', 'vistas/img/productos/9000012/557.jpg', 19, 16.5, 23.1, 0, '2022-12-06 19:58:50'),
-(72, 11, '9000013', 'Kn 95', 'vistas/img/productos/9000013/865.jpg', 112, 10.5, 14.7, 8, '2022-12-07 00:05:44'),
 (73, 11, '9000014', 'Ff p2', 'vistas/img/productos/9000014/225.jpg', 58, 9, 12.6, 0, '2022-12-06 20:01:57'),
 (74, 12, '9000015', 'Evacuol 7 mg', 'vistas/img/productos/9000015/485.jpg', 13, 15, 21, 0, '2022-12-06 20:08:44'),
 (75, 12, '9000016', 'Correctol 01 mg', 'vistas/img/productos/9000016/832.png', 7, 11.3, 15.82, 0, '2022-12-06 20:10:36'),
 (76, 10, '9000017', 'Celedexa 25 g', 'vistas/img/productos/9000017/127.jpg', 16, 23, 32.2, 0, '2022-12-06 20:12:30'),
 (77, 13, '9000018', 'Salbutamol EFG', 'vistas/img/productos/9000018/332.jpg', 19, 18.3, 25.62, 0, '2022-12-06 20:13:55'),
 (78, 13, '9000019', 'Ventolin 100 mc', 'vistas/img/productos/9000019/868.jpg', 5, 26.3, 36.82, 0, '2022-12-06 20:15:24'),
-(79, 14, '9000020', 'Linus 1000 cm', 'vistas/img/productos/9000020/442.jpg', 33, 18.5, 25.9, 2, '2022-12-06 21:30:49'),
 (80, 14, '9000021', 'Farmacohol 500 ml', 'vistas/img/productos/9000021/219.jpg', 31, 18.4, 25.76, 1, '2022-12-06 21:15:56'),
 (81, 14, '9000022', 'Medicinal 500 ml', 'vistas/img/productos/9000022/491.jpg', 3, 23, 32.2, 0, '2022-12-06 20:21:02'),
 (82, 15, '9000023', 'Tensoplast 7 x 2 cm', 'vistas/img/productos/9000023/145.jpg', 21, 10.3, 14.42, 4, '2022-12-06 21:30:49'),
 (83, 15, '9000024', 'Rebster 90 x 90 x 130 cm', 'vistas/img/productos/9000024/250.jpg', 26, 13.2, 18.48, 4, '2022-12-07 00:04:03'),
 (84, 7, '9000025', 'Fluconazol 150 mg', 'vistas/img/productos/9000025/515.jpg', 30, 8.5, 11.9, 9, '2022-12-07 00:05:43'),
 (85, 7, '9000026', 'Fluxetina 20 mg', 'vistas/img/productos/9000026/427.jpg', 13, 13.5, 18.9, 2, '2022-12-06 21:28:09'),
-(86, 7, '9000027', 'Naproxeno 250 mg', 'vistas/img/productos/9000027/925.png', 0, 12.3, 17.22, 3, '2022-12-07 00:52:23'),
-(87, 8, '9000028', 'Weleda 75 ml', 'vistas/img/productos/9000028/739.jpg', 0, 25.5, 35.7, 11, '2022-12-07 00:52:23');
+(86, 7, '9000027', 'Naproxeno 250 mg', 'vistas/img/productos/9000027/925.png', 1, 12.3, 17.22, 2, '2022-12-13 22:31:32'),
+(87, 8, '9000028', 'Weleda 75 ml', 'vistas/img/productos/9000028/739.jpg', 8, 25.5, 35.7, 3, '2022-12-13 21:51:33'),
+(91, 24, '9000030', 'Cepillo doble', 'vistas/img/productos/9000030/654.png', 0, 9.5, 13.3, 7, '2022-12-13 22:31:32'),
+(92, 25, '9000031', 'prueba', 'vistas/img/productos/9000031/980.jpg', 10, 15, 21, 0, '2023-01-08 01:16:11'),
+(93, 26, '10000004', 'Coca Cola', 'vistas/img/productos/10000004/985.png', 1, 3.5, 4.725, 9, '2023-03-09 16:11:29');
 
 -- --------------------------------------------------------
 
@@ -173,12 +178,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Gian Piero', 'gianpiervp', '$2a$07$asxx54ahjppf45sd87a5auKywDV.sNpDjvCA8EohzQfcd19xOnSJ.', 'Administrador', 'vistas/img/usuarios/gianpiervp/378.png', 1, '2022-12-07 01:10:16', '2022-12-07 06:10:16'),
-(61, 'Ricardo Cardenas', 'ricardovp', '$2a$07$asxx54ahjppf45sd87a5aund8wtmzzhx23CffmZM8RtTJiNQJswCS', 'Vendedor', 'vistas/img/usuarios/ricardovp/660.jpg', 1, '2022-12-07 00:45:56', '2022-12-07 05:45:56'),
-(62, 'Anthonella Puente', 'anthonellavp', '$2a$07$asxx54ahjppf45sd87a5auWrFvBnETZRVCekC.w22CqfI8ulqW0Im', 'Vendedor', 'vistas/img/usuarios/anthonellavp/157.jpg', 1, '2022-12-06 19:05:03', '2022-12-07 00:05:03'),
-(63, 'Jean Pierre Bustamante', 'jeanpierrevp', '$2a$07$asxx54ahjppf45sd87a5auYVAWKKKSWLedkM5/4v8G0tZNBskMH7O', 'Especial', 'vistas/img/usuarios/jeanpierrevp/294.jpg', 1, '2022-12-07 00:40:59', '2022-12-07 05:40:59'),
-(64, 'Juan Belarte', 'juanvp', '$2a$07$asxx54ahjppf45sd87a5au5yyIgL3i1Lesj/7LozuDTVG5MBO5mPS', 'Especial', 'vistas/img/usuarios/juanvp/762.jpg', 1, '2022-12-06 12:49:23', '2022-12-07 00:29:33'),
-(73, 'Pedro', 'pedro', '$2a$07$asxx54ahjppf45sd87a5austaEoHG6c2Nsqiq7.UaM8US5nKVJ/IC', 'Administrador', 'vistas/img/usuarios/pedro/888.png', 1, '2022-12-06 19:46:23', '2022-12-07 00:46:23');
+(1, 'Gian Piero Daniel', 'gianpiervp', '$2a$07$asxx54ahjppf45sd87a5auKywDV.sNpDjvCA8EohzQfcd19xOnSJ.', 'Administrador', 'vistas/img/usuarios/gianpiervp/378.png', 1, '2023-03-18 18:15:47', '2023-03-18 23:15:47'),
+(61, 'Ricardo Cardenas', 'ricardovp', '$2a$07$asxx54ahjppf45sd87a5aund8wtmzzhx23CffmZM8RtTJiNQJswCS', 'Vendedor', 'vistas/img/usuarios/ricardovp/660.jpg', 1, '2022-12-13 17:20:55', '2022-12-13 22:20:55'),
+(62, 'Anthonella Puente', 'anthonellavp', '$2a$07$asxx54ahjppf45sd87a5auWrFvBnETZRVCekC.w22CqfI8ulqW0Im', 'Vendedor', 'vistas/img/usuarios/anthonellavp/157.jpg', 0, '2022-12-06 19:05:03', '2022-12-13 22:23:11'),
+(63, 'Jean Pierre Bustamante', 'jeanpierrevp', '$2a$07$asxx54ahjppf45sd87a5auYVAWKKKSWLedkM5/4v8G0tZNBskMH7O', 'Especial', 'vistas/img/usuarios/jeanpierrevp/294.jpg', 1, '2023-01-13 12:33:40', '2023-01-13 17:33:40'),
+(64, 'Juan Belarte', 'juanvp', '$2a$07$asxx54ahjppf45sd87a5au5yyIgL3i1Lesj/7LozuDTVG5MBO5mPS', 'Especial', 'vistas/img/usuarios/juanvp/762.jpg', 0, '2022-12-06 12:49:23', '2022-12-13 21:13:03'),
+(75, 'Pedro', 'pedrito', '$2a$07$asxx54ahjppf45sd87a5aunt/JECDGMhx0tAzOPW7NfLkvtwJM4AW', 'Administrador', 'vistas/img/usuarios/pedrito/900.png', 1, '2023-01-13 12:35:19', '2023-01-13 17:35:19'),
+(79, 'maria', 'maria', '$2a$07$asxx54ahjppf45sd87a5au/styESZTpqxpFPzgJF99YaIo877LNdy', 'Vendedor', 'vistas/img/usuarios/maria/226.png', 1, '2023-03-09 11:14:18', '2023-03-09 16:14:18'),
+(80, 'luis', 'luis', '$2a$07$asxx54ahjppf45sd87a5auagG2T8.Z.c/GFCukN.EcCmBGPOmjB/.', 'Especial', 'vistas/img/usuarios/luis/625.png', 1, '2023-03-09 11:15:32', '2023-03-09 16:15:32');
 
 -- --------------------------------------------------------
 
@@ -214,7 +221,8 @@ INSERT INTO `ventas` (`id`, `codigo`, `id_cliente`, `id_vendedor`, `productos`, 
 (54, 10009, 25, 61, '[{\"id\":\"84\",\"descripcion\":\"Fluconazol 150 mg\",\"cantidad\":\"1\",\"stock\":\"31\",\"precio\":\"11.9\",\"total\":\"11.9\"},{\"id\":\"83\",\"descripcion\":\"Rebster 90 x 90 x 130 cm\",\"cantidad\":\"1\",\"stock\":\"26\",\"precio\":\"18.48\",\"total\":\"18.48\"}]', 5.4684, 30.38, 35.8484, 'TD-8932874367349823', '2022-10-07 00:04:03'),
 (55, 10010, 35, 61, '[{\"id\":\"3\",\"descripcion\":\"Amlodipine 5 mg\",\"cantidad\":\"1\",\"stock\":\"34\",\"precio\":\"11.9\",\"total\":\"11.9\"},{\"id\":\"65\",\"descripcion\":\"Nivea Creme\",\"cantidad\":\"2\",\"stock\":\"13\",\"precio\":\"49\",\"total\":\"98\"},{\"id\":\"66\",\"descripcion\":\"Captopril 50 mg\",\"cantidad\":\"1\",\"stock\":\"7\",\"precio\":\"10.5\",\"total\":\"10.5\"}]', 21.672, 120.4, 142.072, 'TC-9823783289348732', '2022-11-07 00:04:45'),
 (56, 10011, 27, 62, '[{\"id\":\"84\",\"descripcion\":\"Fluconazol 150 mg\",\"cantidad\":\"1\",\"stock\":\"30\",\"precio\":\"11.9\",\"total\":\"11.9\"},{\"id\":\"72\",\"descripcion\":\"Kn 95\",\"cantidad\":\"2\",\"stock\":\"112\",\"precio\":\"14.7\",\"total\":\"29.4\"}]', 7.434, 41.3, 48.734, 'TC-9823982387349823', '2022-11-07 00:05:44'),
-(57, 10012, 40, 73, '[{\"id\":\"86\",\"descripcion\":\"Naproxeno 250 mg\",\"cantidad\":\"3\",\"stock\":\"0\",\"precio\":\"17.22\",\"total\":\"51.66\"},{\"id\":\"87\",\"descripcion\":\"Weleda 75 ml\",\"cantidad\":\"8\",\"stock\":\"0\",\"precio\":\"35.7\",\"total\":\"285.6\"}]', 60.7068, 337.26, 397.967, 'Efectivo', '2022-12-07 00:52:23');
+(59, 10012, 42, 1, '[{\"id\":\"91\",\"descripcion\":\"Cepillo doble\",\"cantidad\":\"7\",\"stock\":\"0\",\"precio\":\"13.3\",\"total\":\"93.1\"},{\"id\":\"86\",\"descripcion\":\"Naproxeno 250 mg\",\"cantidad\":\"2\",\"stock\":\"1\",\"precio\":\"17.22\",\"total\":\"34.44\"}]', 22.9572, 127.54, 150.497, 'Efectivo', '2022-12-13 22:31:33'),
+(60, 10013, 43, 1, '[{\"id\":\"93\",\"descripcion\":\"Coca Cola\",\"cantidad\":\"9\",\"stock\":\"1\",\"precio\":\"4.725\",\"total\":\"42.525\"}]', 7.6545, 42.525, 50.1795, 'Efectivo', '2023-03-09 16:11:29');
 
 --
 -- Índices para tablas volcadas
@@ -258,31 +266,31 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
