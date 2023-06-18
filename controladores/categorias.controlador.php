@@ -165,11 +165,11 @@ class ControladorCategorias{
 					echo'<script>
 
 					swal({
-						  type: "success",
-						  title: "La categoría ha sido borrada correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "success",
+						title: "La categoría ha sido borrada correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 									if (result.value) {
 
 									window.location = "categorias";
