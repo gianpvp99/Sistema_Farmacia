@@ -101,6 +101,10 @@ $(".tablas").on("click", ".btnActivar", function(){
 
 	var idUsuario = $(this).attr("idUsuario");
 	var estadoUsuario = $(this).attr("estadoUsuario");
+	var usuarioActual = $(this).attr("usuarioActual");
+
+	console.log(usuarioActual);
+
 
 	var datos = new FormData();
  	datos.append("activarId", idUsuario);
@@ -200,25 +204,41 @@ $(".tablas").on("click", ".btnEliminarUsuario", function(){
   var idUsuario = $(this).attr("idUsuario");
   var fotoUsuario = $(this).attr("fotoUsuario");
   var usuario = $(this).attr("usuario");
+  var usuarioActual = $(this).attr("usuarioActual");
 
-  swal({
-    title: '¿Está seguro de borrar el usuario?',
-    text: "¡Si no lo está puede cancelar la accíón!",
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, borrar usuario!'
-  }).then(function(result){
+    //   console.log(idUsuario,usuarioActual);
 
-    if(result.value){
+	if (idUsuario == usuarioActual){
 
-      window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+		swal({
 
-    }
+			title: "Error al eliminar usuario",
+            text: "¡No puedes eliminarte a ti mismo!",
+            type: 'error',
+           /*  type: "error", */
+            confirmButtonText: "¡Cerrar!"
 
-  })
+		});
+	} else {
+		swal({
+			title: '¿Está seguro de borrar el usuario?',
+			text: "¡Si no lo está puede cancelar la accíón!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  cancelButtonText: 'Cancelar',
+			  confirmButtonText: 'Si, borrar usuario!'
+		  }).then(function(result){
+		
+			if(result.value){
+		
+			  window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+		
+			}
+		
+		  })
+	}
 
 })
 
